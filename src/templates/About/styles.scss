@@ -1,0 +1,234 @@
+.about-us {
+  margin-top: 40px;
+  .content {
+    padding: 0 160px;
+    margin-bottom: 40px;
+
+    @media (max-width: 1230px) {
+      padding: 0 82px;
+    }
+
+    @media (max-width: 900px) {
+      padding: 20px 40px;
+    }
+
+    @media (max-width: 500px) {
+      padding: 20px;
+    }
+  }
+
+  &-header-section {
+    display: grid;
+    grid-template-columns: auto 375px;
+    gap: 40px;
+
+    .header-images {
+      display: flex;
+      height: 280px;
+      flex-direction: column;
+      gap: 10px;
+
+      &-upper-section {
+        display: flex;
+        gap: 10px;
+      }
+
+      &-lower-section,
+      &-upper-section {
+        height: 50%;
+        width: 100%;
+        display: flex;
+
+        div {
+          width: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .awards {
+    background: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &-list {
+      width: 100%;
+      gap: 20px;
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+
+      &-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+        padding: 30px;
+
+        border-radius: 0px;
+        background: #ffffff;
+        box-shadow: 5px 5px 10px #e3e3e3, -5px -5px 10px #ffffff;
+
+        h4 {
+          font-weight: 400;
+        }
+
+        p {
+          font-size: 13px;
+          font-weight: lighter;
+          color: #4c4e4f;
+          margin-top: 5px;
+        }
+
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+    }
+  }
+
+  .know-more {
+    display: grid;
+    grid-template-columns: 375px auto;
+    gap: 40px;
+
+    .details {
+      width: auto;
+    }
+
+    &-images {
+      display: flex;
+      gap: 10px;
+      height: 280px;
+      border-radius: 0px;
+
+      div {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          background: #ffffff;
+          box-shadow: 5px 5px 10px #e3e3e3, -5px -5px 10px #ffffff;
+        }
+      }
+    }
+  }
+
+  .mission-vission {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    .mission,
+    .vission {
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      background: #ffffff;
+      gap: 40px;
+      padding: 40px 30px;
+      border-radius: 5px;
+
+      .title {
+        padding-left: 15px;
+        margin-bottom: 10px;
+        &::before {
+          width: 5px;
+        }
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
+  .team-members {
+    .team-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+      gap: 20px;
+
+      &-item {
+        width: 100%;
+        text-align: center;
+        background: #fff;
+        padding: 10px;
+
+        p {
+          font-weight: 300;
+        }
+
+        span {
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 11px;
+        }
+        img {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .title {
+      padding-left: 15px;
+      margin-bottom: 10px;
+      &::before {
+        width: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 950px) {
+    margin-top: 20px;
+    &-header-section,
+    .know-more {
+      display: flex;
+      flex-direction: column;
+
+      .header-images {
+        height: 500px;
+      }
+    }
+
+    .know-more {
+      flex-direction: column-reverse;
+    }
+
+    .mission-vission {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 10px;
+
+    .mission-vission {
+      .mission,
+      .vission {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+        padding: 20px;
+
+        .title {
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

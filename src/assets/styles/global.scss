@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.global-btn {
+  background: #164863;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Nunito";
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.title {
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: #e45151;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 23px;
+  }
+}
+
+.featured-tag {
+  position: absolute;
+  top: 30px;
+  background: #e45151;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 16px;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+input {
+  font-family: "Nunito";
+}
