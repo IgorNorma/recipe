@@ -19,9 +19,6 @@ function Blog({ data: { contentfulBlog: blog } }: any) {
   }
 
   const options = {
-    renderMark: {
-      [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
-    },
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => {
         const { uri } = node.data
@@ -33,7 +30,10 @@ function Blog({ data: { contentfulBlog: blog } }: any) {
       },
 
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2>{children}</h2>
+        return <h2 className="secondary-title">{children}</h2>
+      },
+      [BLOCKS.HEADING_3]: (node, children) => {
+        return <h3 className="tertiary-title">{children}</h3>
       },
       [BLOCKS.EMBEDDED_ASSET]: node => {
         const { gatsbyImage, description } = node.data.target

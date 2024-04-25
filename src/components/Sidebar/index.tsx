@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import "./style.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { getSlug } from "../../utils/get-slug"
+import { getCorrectImage } from "../../utils/get-image"
 
 export const query = graphql`
   query SidebarContent {
@@ -24,6 +25,7 @@ export const query = graphql`
     allContentfulRecipe(filter: { popular: { eq: true } }) {
       nodes {
         gallery {
+          title
           gatsbyImageData(
             height: 150
             width: 300
@@ -70,7 +72,7 @@ export default function Sidebar() {
             <div>
               <Link to={`/recipes/${getSlug(name)}`} key={id}>
                 <GatsbyImage
-                  image={getImage(gallery[0])!}
+                  image={getImage(getCorrectImage("desktop", gallery)!)!}
                   alt="featured image"
                 />
                 <p>{title}</p>
