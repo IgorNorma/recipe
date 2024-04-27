@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../../Layout/home-layout"
 import TimeIcon from "../../assets/images/icons/clock.png"
 import "./style.scss"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Card from "../../components/Card"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { getSlug } from "../../utils/get-slug"
@@ -73,11 +73,7 @@ export const pageQuery = graphql`
       title
       id
     }
-    allContentfulRecipe(
-      limit: 12
-      skip: 0
-      filter: { featured: { eq: false } }
-    ) {
+    allContentfulRecipe(filter: { featured: { eq: false } }) {
       nodes {
         gallery {
           title
