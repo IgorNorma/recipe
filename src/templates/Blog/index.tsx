@@ -7,15 +7,15 @@ import LinkedInIcon from "../../assets/images/icons/linkedin.png"
 import "./style.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { getSlug } from "../../utils/get-slug"
-import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { INLINES, BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 function Blog({ data: { contentfulBlog: blog } }: any) {
   const seo = {
     title: blog.title,
     description: blog.description,
-    url: `/blogs/${getSlug(blog.title)}`,
-    image: blog.banner_image,
+    url: `blogs/${getSlug(blog.title)}`,
+    image: blog.banner_image.url,
   }
 
   const options = {
@@ -73,6 +73,7 @@ export const pageQuery = graphql`
       title
       trending
       banner {
+        url
         gatsbyImageData(
           formats: WEBP
           height: 1000

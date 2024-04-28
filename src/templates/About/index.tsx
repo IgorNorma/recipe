@@ -45,7 +45,17 @@ function AboutPage() {
     window.URL.revokeObjectURL(url)
   }
   return (
-    <HomeLayout background="#EFF2F4">
+    <HomeLayout
+      background="#EFF2F4"
+      seo={{
+        title: "About Us",
+        description:
+          "Discover the story behind Recipe & Blogs - a culinary haven created by passionate food lovers. From our kitchen to yours, learn about our journey, values, and commitment to bringing you the best in easy, delicious recipes. Get to know the faces behind the flavors and join us on a delicious adventure in the world of cooking.",
+        url: `about-us`,
+        image:
+          "https://firebasestorage.googleapis.com/v0/b/movies-5a33e.appspot.com/o/ola-mishchenko-gzYiNoTSzxE-unsplash.jpg?alt=media&token=16be81dd-c237-4d08-b409-3d09e3c98750",
+      }}
+    >
       <div className="about-us">
         <section className="about-us-header-section content">
           <header>

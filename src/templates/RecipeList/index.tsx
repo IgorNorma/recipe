@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../../Layout/home-layout"
 import TimeIcon from "../../assets/images/icons/clock.png"
 import "./style.scss"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Card from "../../components/Card"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { getSlug } from "../../utils/get-slug"
@@ -14,8 +14,16 @@ function RecipePage({
     allContentfulRecipe: { nodes },
   },
 }: any) {
+  const seo = {
+    title: "Recipe you might wanna try",
+    url: "recipes",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/movies-5a33e.appspot.com/o/anh-nguyen-kcA-c3f_3FE-unsplash.jpg?alt=media&token=276db0df-e866-4d29-8a79-6fccbce3586c",
+    description:
+      "Discover delightful and easy-to-cook recipes guaranteed to tantalize your taste buds. From quick weeknight dinners to indulgent desserts, find your next culinary masterpiece here.",
+  }
   return (
-    <Layout background="#f3f5f7">
+    <Layout background="#f3f5f7" seo={seo}>
       <div className="recipe-list">
         <header>
           <h1 className="title">recipes you might wanna try</h1>

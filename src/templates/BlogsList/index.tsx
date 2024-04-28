@@ -17,10 +17,10 @@ function BlogPage({
       seo={{
         title: "Blogs you might be interested in.",
         description:
-          "nline journal where an individual, group, or corporation presents a record of activities, thoughts, or beliefs. ",
+          "Get inspired in the kitchen with Recipe & Blogs blog. Explore a treasure trove of culinary wisdom, cooking tips, and mouthwatering recipes from our team of passionate food enthusiasts. Whether you're a gourmet guru or a kitchen novice, our blog has something to satisfy every craving and elevate your cooking game.",
         image:
           "https://firebasestorage.googleapis.com/v0/b/movies-5a33e.appspot.com/o/ola-mishchenko-gzYiNoTSzxE-unsplash.jpg?alt=media&token=16be81dd-c237-4d08-b409-3d09e3c98750",
-        url: "/blogs",
+        url: "blogs",
       }}
     >
       <div className="blog">

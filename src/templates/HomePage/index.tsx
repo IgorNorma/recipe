@@ -16,8 +16,17 @@ function Home({
     allContentfulRecipe: { nodes },
   },
 }: any) {
+  const seo = {
+    title: "Recipe And Blogs",
+    url: "",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/movies-5a33e.appspot.com/o/anh-nguyen-kcA-c3f_3FE-unsplash.jpg?alt=media&token=276db0df-e866-4d29-8a79-6fccbce3586c",
+    description:
+      "Welcome to Recipe & Blogs - your ultimate destination for delicious, hassle-free recipes. Explore a diverse collection of easy-to-cook dishes that promise culinary delight for every palate. Whether you're a seasoned chef or a cooking novice, discover inspiration for your next meal and embark on a flavorful journey with us.",
+  }
+
   return (
-    <Layout background="#fff">
+    <Layout background="#fff" seo={seo}>
       <div className="home">
         <section className="home-banner">
           <div>

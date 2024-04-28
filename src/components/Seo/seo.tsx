@@ -17,7 +17,7 @@ function Seo({ title, description, image, url }: SeoProp) {
         { name: "og:image", content: image },
       ]}
     >
-      <link rel="canonical" href={`${process.env.DOMAIN}/${url}`} />
+      <link rel="canonical" href={`${process.env.DOMAIN}${url}`} />
     </Helmet>
   )
 }

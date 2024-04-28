@@ -7,26 +7,31 @@ import LinkedInIcon from "../../assets/images/icons/linkedin.png"
 import MainLayout from "../../Layout/main-layout"
 import "./style.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Helmet } from "react-helmet"
 import { getSlug } from "../../utils/get-slug"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { getCorrectImage } from "../../utils/get-image"
+import { FacebookShareButton } from "react-share"
 
 function Recipe({ data: { contentfulRecipe: recipe } }: any) {
   const seo = {
     title: recipe.title,
     description: recipe.description,
-    image: "/",
-    url: `/recipes/${getSlug(recipe.name)}`,
+    image: recipe.gallery[0].url,
+    url: `recipes/${getSlug(recipe.name)}`,
+  }
+
+  const handleShare = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        `${process.env.DOMAIN}${seo.url}`,
+      )}`,
+      "_blank",
+    )
   }
 
   const richTextJson = JSON.parse(recipe.description.raw)
-  console.log(recipe)
   return (
     <MainLayout seo={seo}>
-      <Helmet>
-        <title>{recipe.title}</title>
-      </Helmet>
       <div className="recipe-container">
         <h1 className="title">{recipe.title}</h1>
         <div className="recipe-info">
@@ -58,7 +63,9 @@ function Recipe({ data: { contentfulRecipe: recipe } }: any) {
               </div>
               <div className="share-links">
                 <img src={TwitterIcon} alt="twitter icon" />
-                <img src={FbIcon} alt="facebook icon" />
+                <FacebookShareButton url={`${process.env.DOMAIN}${seo.url}`}>
+                  <img src={FbIcon} onClick={handleShare} alt="facebook icon" />
+                </FacebookShareButton>
                 <img src={LinkedInIcon} alt="instagram icon" />
               </div>
             </div>
@@ -114,6 +121,7 @@ export const pageQuery = graphql`
       tags
       similar {
         gallery {
+          url
           title
           gatsbyImageData(
             formats: WEBP
