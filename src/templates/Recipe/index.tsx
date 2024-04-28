@@ -10,7 +10,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { getSlug } from "../../utils/get-slug"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { getCorrectImage } from "../../utils/get-image"
-// import { FacebookShareButton } from "react-share"
+import { FacebookShareButton } from "react-share"
 
 function Recipe({ data: { contentfulRecipe: recipe } }: any) {
   const seo = {
@@ -18,6 +18,15 @@ function Recipe({ data: { contentfulRecipe: recipe } }: any) {
     description: recipe.description,
     image: recipe.gallery[0].url,
     url: `recipes/${getSlug(recipe.name)}`,
+  }
+
+  const handleShare = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        `${process.env.DOMAIN}${seo.url}`,
+      )}`,
+      "_blank",
+    )
   }
 
   const richTextJson = JSON.parse(recipe.description.raw)
@@ -54,9 +63,9 @@ function Recipe({ data: { contentfulRecipe: recipe } }: any) {
               </div>
               <div className="share-links">
                 <img src={TwitterIcon} alt="twitter icon" />
-                {/* <FacebookShareButton url={`${process.env.DOMAIN}${seo.url}`}> */}
-                <img src={FbIcon} alt="facebook icon" />
-                {/* </FacebookShareButton> */}
+                <FacebookShareButton url={`${process.env.DOMAIN}${seo.url}`}>
+                  <img src={FbIcon} onClick={handleShare} alt="facebook icon" />
+                </FacebookShareButton>
                 <img src={LinkedInIcon} alt="instagram icon" />
               </div>
             </div>

@@ -10,13 +10,13 @@ export interface SeoProp {
 
 function Seo({ title, description, image, url }: SeoProp) {
   return (
-    <Helmet
-      title={title}
-      meta={[
-        { name: "desciption", content: description },
-        { name: "og:image", content: image },
-      ]}
-    >
+    <Helmet title={title}>
+      <meta property="og:image:url" content={image} />
+      <meta property="og:image" content={image} />
+      <meta name="description" content={description} />
+      <meta name="og:url" content={`${process.env.DOMAIN}${url}`} />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
       <link rel="canonical" href={`${process.env.DOMAIN}${url}`} />
     </Helmet>
   )
