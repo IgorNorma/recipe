@@ -15,7 +15,7 @@ function Blog({ data: { contentfulBlog: blog } }: any) {
     title: blog.title,
     description: blog.description,
     url: `blogs/${getSlug(blog.title)}`,
-    image: blog.banner_image.url,
+    image: blog.banner.url,
   }
 
   const options = {
