@@ -10,6 +10,7 @@ import "./style.scss"
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import { Link, graphql } from "gatsby"
 import { getSlug } from "../../utils/get-slug"
+import { getCorrectImage } from "../../utils/get-image"
 
 function Home({
   data: {
@@ -29,26 +30,12 @@ function Home({
     <Layout background="#fff" seo={seo}>
       <div className="home">
         <section className="home-banner">
-          <div>
-            <StaticImage
-              src={"../../assets/images/home-img.png"}
-              alt="home image"
-            />
-          </div>
           <header>
-            <h1 className="title">
-              Food truck truffaut Austin, glossier - Activated charcoal
-            </h1>
+            <h1>Delicious Recipes & Inspiring Blogs</h1>
             <div className="home-banner-description">
               <p>
-                Narwhal selfies ethical marxism. Activated charcoal kale chips
-                swag before they sold out poutine enamel pin kinfolk. Cardigan
-                kickstarter butcher trust fund,
-              </p>
-              <br />
-              <p>
-                Chicharrones sartorial bushwick portland unicorn scenester la
-                croix celiac butcher yes plz burgers
+                Bite into Culinary Delights: Explore our treasure trove of
+                tantalizing recipes, seasoned with passion and creativity.
               </p>
             </div>
             <div className="header-end">
@@ -68,6 +55,14 @@ function Home({
               </ul>
             </div>
           </header>
+          <div>
+            <StaticImage
+              src={
+                "../../assets/images/Customer and waitress in coffee shop.jpg"
+              }
+              alt="home image"
+            />
+          </div>
         </section>
         <section className="home-featured-recipe">
           <header>
@@ -100,7 +95,7 @@ function Home({
                 return (
                   <Link to={`/recipes/${getSlug(name)}`} key={id}>
                     <GatsbyImage
-                      image={getImage(gallery[0])!}
+                      image={getImage(getCorrectImage("mobile", gallery)!)!}
                       alt="recipe image"
                     />
                     <p>{name}</p>
@@ -148,6 +143,7 @@ export const PageQuery = graphql`
     allContentfulRecipe(filter: { popular: { eq: true } }) {
       nodes {
         gallery {
+          title
           gatsbyImageData(
             width: 3000
             placeholder: DOMINANT_COLOR
