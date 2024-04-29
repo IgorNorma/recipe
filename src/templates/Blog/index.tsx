@@ -13,7 +13,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 function Blog({ data: { contentfulBlog: blog } }: any) {
   const seo = {
     title: blog.title,
-    description: blog.description,
+    description: blog.metaDescription.metaDescription,
     url: `blogs/${getSlug(blog.title)}`,
     image: blog.banner.url,
   }
@@ -72,6 +72,9 @@ export const pageQuery = graphql`
     contentfulBlog(id: { eq: $id }) {
       title
       trending
+      metaDescription {
+        metaDescription
+      }
       banner {
         url
         gatsbyImageData(

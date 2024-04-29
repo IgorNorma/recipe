@@ -15,7 +15,7 @@ import { FacebookShareButton } from "react-share"
 function Recipe({ data: { contentfulRecipe: recipe } }: any) {
   const seo = {
     title: recipe.title,
-    description: recipe.description,
+    description: recipe.metaDescription.metaDescription,
     image: recipe.gallery[0].url,
     url: `recipes/${getSlug(recipe.name)}`,
   }
@@ -119,6 +119,9 @@ export const pageQuery = graphql`
       name
       title
       tags
+      metaDescription {
+        metaDescription
+      }
       similar {
         gallery {
           url
@@ -141,6 +144,7 @@ export const pageQuery = graphql`
       }
       featured
       gallery {
+        url
         title
         gatsbyImageData(
           formats: WEBP
