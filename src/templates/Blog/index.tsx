@@ -61,7 +61,7 @@ function Blog({ data: { contentfulBlog: blog } }: any) {
             <img src={LinkedInIcon} alt="instagram icon" />
           </div>
         </div>
-        <div>{renderRichText(blog.content, options)}</div>
+        <div className="content">{renderRichText(blog.content, options)}</div>
       </div>
     </MainLayout>
   )
